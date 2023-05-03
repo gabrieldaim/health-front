@@ -1,0 +1,133 @@
+.section-personalizar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+.img-personalizar{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-produto-personalizar{
+    width:100%;
+    max-width: 50rem;
+    margin: auto;
+    transition: 0.3s ease;
+}
+
+.sombra{
+    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.66));
+}
+
+.img-produto-personalizar:hover{
+    transform: scale(1.05);
+}
+
+.h2-personalizar{
+    margin-top: 0;
+    margin-bottom: 8rem;
+}
+
+.descritivo-personalizar{
+    width: 30vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.descritivo-personalizar > h3{
+    font-size: 2.6rem;
+}
+
+.descritivo-personalizar > .valor-personalizar{
+    width: 10rem;
+    background-color: white;
+    border-radius: 10rem;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor:default;
+    margin-bottom: 4rem;
+}
+
+.descritivo-personalizar > .valor-personalizar:hover{
+    background-color: var(--cinza);
+    color: white;
+
+}
+
+.personalizacao{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+.button-personalizacao{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.div-quantidade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
+.p-quantidade{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-quantidade{
+    height: 3rem;
+    width: 5rem;
+    background-color: var(--cinza);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.mais{
+    border-radius:  0 5px 5px 0;
+}
+
+.menos{
+    
+    border-radius: 5px 0 0 5px;
+}
+
+#quantidade{
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--cinza);
+    font-size: 2rem;
+    border: none;
+}
+
+#quantidade:focus{
+    outline: none;
+}
+
+#quantidade {
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+            appearance: textfield;
+  }
+  #quantidade::-webkit-inner-spin-button, 
+  #quantidade::-webkit-outer-spin-button { 
+    -webkit-appearance: none;}

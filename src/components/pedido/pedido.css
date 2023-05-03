@@ -1,0 +1,49 @@
+.pedido-total{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 3rem;
+    width: 55.5rem;
+}
+
+.pedido-total > img {
+    width: 6rem;
+    height: 6rem;
+}
+
+.itens-pedido{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.item-pedido{
+    font-weight: bold;
+    color: var(--cinza);
+}
+
+.obs-pedido{
+    color: rgb(143, 143, 143);
+}
+
+.valor-pedido{
+    color: var(--cinza);
+    font-weight: normal;
+    
+}
+
+.horario-criacao{
+    font-size: 1.3rem;
+}
+
+.horario-conclusao{
+    font-size: 1.3rem;
+    color: rgb(237, 49, 49);
+    font-weight: bold;
+}
+
+.concluido{
+    color: rgb(41, 209, 41);
+}

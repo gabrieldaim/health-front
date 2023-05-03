@@ -1,0 +1,12 @@
+footer{
+    color: white;
+    background-color: var(--cinza);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 2rem;
+}
+
+footer > p{
+    cursor: pointer;
+}

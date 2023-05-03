@@ -1,0 +1,93 @@
+.pratos{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: -15rem;
+    justify-items: center;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.sucos{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  overflow: hidden;
+  padding-top: 9rem;
+  flex-wrap: wrap;
+  gap: 6rem;
+}
+
+.pratos-flex{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 5rem 2rem 0 2rem;
+    justify-items: center;
+    overflow: hidden;
+    gap: 4rem;
+    min-height: 70vh;
+}
+
+
+
+.fundo-amarelo{
+    width: 100vw;
+    object-fit: cover;
+    position: absolute;
+    z-index: -999;
+    min-height: 15.1rem;
+}
+
+
+
+.verMais{
+    width: 100%;
+    text-align: center;
+    background-color: var(--amarelo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.verMais > p, .verMais > img{
+    cursor: pointer;
+}
+
+.rodar{
+    transform: rotate(180deg);
+}
+
+.produtos-animacao-enter {
+    opacity: 0;
+  }
+  
+  .produtos-animacao-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .produtos-animacao-exit {
+    opacity: 1;
+  }
+  
+  .produtos-animacao-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+  }
+
+
+  
+  h2{
+    text-align: center;
+    margin-top: 9rem;
+    color: white;
+    font-weight: bold;
+  }

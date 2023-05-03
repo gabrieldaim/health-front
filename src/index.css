@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root{
+  font-size: 62.5%;
+  --cinza: #3B3B3B;
+  --amarelo: #FFC737;
+  --cinza-claro:#494949;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--amarelo);
+}
+
+/* largura e cor da barra de rolagem */
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: white;
+  
+}
+
+/* cor do traço na barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: var(--cinza);
+  border-radius: 10px;
+}
+
+/* cor do hover no traço da barra de rolagem */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}

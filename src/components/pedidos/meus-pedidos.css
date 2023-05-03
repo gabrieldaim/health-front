@@ -1,0 +1,26 @@
+.pedidos{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: -15rem;
+    justify-items: center;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    min-height: 73.7vh;
+    gap: 3rem;
+    padding-bottom: 5rem;
+}
+
+.pedidos:first-child{
+    background-color: red;
+}
+
+.fundo-amarelo-pedidos{
+    width: 100vw;
+    object-fit: cover;
+    position: absolute;
+    z-index: -999;
+    min-height: 15.1rem;
+}

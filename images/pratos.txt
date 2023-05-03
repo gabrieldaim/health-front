@@ -1,0 +1,18 @@
+imagem 2 - salada de ovos russa ou salada grega {pepino, endro, everilhas, clara de ovo e tomate, ervilha}
+imagem 8 - hommus {grão de bico com uma pasta de gergelim}
+imagem 10 - tarrine de beterraba{pasta de gergelim com beterraba e biscoito agua e sal}
+imagem 1 - salmão grelhado com crostata de romam e praline de maça branca
+imagem 5 - salada verde com redução de balsamico
+imagem 6 - salmão, maionese de limão e praline de pele de salmão
+
+
+1-Ramsay - Delicioso penne al dente servido com uma salada fresca e crocante, regado com molho inglês agridoce e picante, para uma experiência única de sabores e texturas. - Tomate,Milho,Picles
+2-Boulud - Uma salada russa clássica com ovos cozidos, batatas, cenouras e ervilhas, em um molho maionese cremoso. Saborosa e suave, perfeita para uma refeição leve e refrescante. - Tomate,Ervilha,Croutons 
+3-Ducasse - Delicioso frango grelhado acompanhado por uma refrescante salada colorida. Uma combinação saudável e saborosa. - Alface,Limão
+4-Bottura - Uma seleção fresca de saladas verdes, como alface, rúcula e picles,para uma refeição leve e refrescante. - Alface,Cebola Roxa,Tomate,Picles,Rúcula
+5-Puck - Salmão grelhado com crostata de romã e praliné de maçã branca. Uma combinação requintada de sabores e texturas. - Limão
+6-Keller - Salmão suculento com maionese de limão e praliné de pele de salmão. Uma combinação única e deliciosa. -  Alface,Tomate
+7-Chang - Deliciosa salada com salmão cru, fresco e saudável, combinado com mix de folhas e ingredientes frescos. Saboroso e nutritivo. - Tomate,Abacate,Alface Americano
+8-Robuchon - Uma deliciosa pasta de hommus feita com grão de bico cremoso, combinado com uma pasta de gergelim rica em sabor. Uma combinação clássica e irresistível. - Azeite
+9-Adria - Delicioso bobó de camarão, prato brasileiro tradicional, com camarões suculentos e cremoso molho de mandioca, leite de coco e temperos tropicais. Uma explosão de sabores e texturas. - Cheiro Verde
+10-Morimoto - Uma tarrine de beterraba vibrante e cremosa, com camadas de beterraba assada e queijo de cabra. Sofisticada e deliciosa. - Biscoito de agua e sal

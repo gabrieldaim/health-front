@@ -1,0 +1,46 @@
+.selectPersonalizar{
+    display: flex;
+    background-color: white;
+    width: 30vw;
+    height: 4rem;
+    border-radius: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    
+    min-width: 50rem;
+}
+
+.selectPersonalizar > label{
+    padding: 0 2rem;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.selectPersonalizar > label > input{
+    display: none;
+}
+
+.check{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--cinza);
+    display: inline-block;
+}
+
+.selectPersonalizar input:checked ~ .check{
+    background-image: url('../../../images/check.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--cinza);
+    border: 0;
+}
+
+
