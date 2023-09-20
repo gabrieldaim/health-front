@@ -13,6 +13,13 @@ export default (() =>{
   const [totalCompra, setTotalCompra] = useState(0)
   const [ativoPedidos, setAtivoPedidos] = useState('')
   const [visible, setVisible] = useState(false);
+  const [cep, setCep] = useState('')
+  const [logradouro, setLogradouro] = useState('')
+  const [bairro, setBairro] = useState('')
+  const [estado, setEstado] = useState('') 
+  const [numero, setNumero] = useState('') 
+  const [complemento, setComplemento] = useState('') 
+
 
   function mudarAtivo(ativoAtual){
     if (ativoAtual == "home"){
@@ -25,6 +32,7 @@ export default (() =>{
   }
   const showDrawer = async () => {
     getCarrinho()
+    getEndereco()
     setVisible(true);
   };
 
@@ -50,8 +58,6 @@ export default (() =>{
     .then((resp) => resp.json()) //transformando ele em json
     .then((data) => {setCarrinho(data.carrinho)}) //chamando o useState para atualizar o const categories
     .catch((err) => console.error(err))
-
-
   }
 
   const delCarrinho = async (id) =>{
@@ -68,6 +74,17 @@ export default (() =>{
         });
    }
 
+   async function getEndereco(){
+    await fetch("http://localhost:5000/endereco", { //link do backend
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",}
+    })
+    .then((resp) => resp.json()) //transformando ele em json
+    .then((data) => {setCep(data.Endereco.cep),setLogradouro(data.Endereco.logradouro),setNumero(data.Endereco.numero),setBairro(data.Endereco.bairro),setEstado(data.Endereco.estado),setComplemento(data.Endereco.complemento)}) //chamando o useState para atualizar o const categories
+    .catch((err) => console.error(err))
+  }
+
    const PostPedidos = async (produtos) =>{
     const formData = new FormData();
       formData.append('produtos', produtos); 
@@ -82,6 +99,18 @@ export default (() =>{
         });
    }
 
+   function verificaPedido(){
+    let camposObrigatorios = [carrinho.length, cep, logradouro, numero,estado];
+    if(camposObrigatorios.some(variavel => variavel == null || variavel == undefined || variavel == '' || variavel == 0)){
+      toast.error('Está faltando produto ou endereço na solicitação', {
+        position: toast.POSITION.TOP_LEFT
+      });
+    }else{
+      clickAddPedido()
+    }
+
+   }
+
    async function clickAddPedido(){
     let produtos = []
     carrinho.forEach((item) => {
@@ -90,6 +119,13 @@ export default (() =>{
     })
     console.log(produtos)
     await PostPedidos(produtos)
+    setCep('')
+    setCep('')
+    setLogradouro('')
+    setBairro('')
+    setEstado('') 
+    setNumero('') 
+    setComplemento('') 
     toast.success('Pedido realizado com sucesso! Para visualizar, basta ir na aba de MEUS PEDIDOS.', {
       position: toast.POSITION.TOP_LEFT
     });
@@ -104,6 +140,52 @@ export default (() =>{
         position: toast.POSITION.TOP_LEFT
     });
     }
+
+    async function getCep(cepDigitado){
+      await fetch(`https://thingproxy.freeboard.io/fetch/https://viacep.com.br/ws/${cepDigitado}/json`, { //link do backend
+          method: "GET",
+          headers: {
+              "Content-Type": "application/json",}
+      })
+      .then((resp) => resp.json()) //transformando ele em json
+      .then((data) => {setLogradouro(data.logradouro), setBairro(data.bairro),setEstado(data.uf)}) //chamando o useState para atualizar o const categories
+      .catch((err) => console.error(err))
+    }
+
+    const PutEndereco = async () =>{
+      const formData = new FormData();
+        formData.append('cep', cep); 
+        formData.append('logradouro', logradouro); 
+        formData.append('numero', numero); 
+        formData.append('bairro', bairro); 
+        formData.append('estado', estado); 
+        formData.append('complemento', complemento); 
+        let url = 'http://127.0.0.1:5000/endereco';
+        await fetch(url, {
+          method: 'put',
+          body: formData
+        })
+          .then((response) => console.log(response))
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+     }
+
+    const handleBlur = () => {
+      // Esta função será executada quando o usuário sair do campo de entrada
+      PutEndereco()
+      // Você pode chamar a função que deseja executar aqui
+    };
+
+    const handleCepChange = (event) => {
+      const inputValue = event.target.value;
+      // Verifica se o valor contém apenas números usando uma expressão regular
+      const numericValue = inputValue.replace(/\D/g, '');
+      setCep(numericValue);
+      if (numericValue.length === 8) {
+        getCep(numericValue)
+      }
+    };
 
 
   return (
@@ -129,9 +211,28 @@ export default (() =>{
         <ItemCarrinho key={key} item={elemento.id} nome={elemento.produto_nome} quantidade={elemento.quantidade} preco={elemento.preco} observacao={elemento.observacao} funcaoFilho={handleClick}></ItemCarrinho>
       ))}
       </div>
+      <div className='form-endereco'>
+      <label for="cep" className='label'>CEP:</label>
+        <input type="text" onBlur={PutEndereco} id="cep" name="cep" value={cep} maxLength={8} onChange={handleCepChange} required /><br /><br />
+
+        <label for="logradouro" className='label'>Logradouro:</label>
+        <input type="text" onBlur={PutEndereco} id="logradouro" name="logradouro" value={logradouro} readOnly /><br /><br />
+
+        <label for="numero" className='label'>Numero:</label>
+        <input type="text" onBlur={PutEndereco} id="numero" name="numero" value={numero} onChange={(event) => setNumero(event.target.value)} required /><br /><br />
+
+        <label for="bairro" className='label'>Bairro:</label>
+        <input type="text" onBlur={PutEndereco} id="bairro" name="bairro" value={bairro} readOnly /><br /><br />
+
+        <label for="estado" className='label'>Estado:</label>
+        <input type="text" onBlur={PutEndereco} id="estado" name="estado" value={estado} readOnly /><br /><br />
+
+        <label for="complemento" className='label'>Complemento:</label>
+        <input type="text" onBlur={PutEndereco} id="complemento" name="complemento" value={complemento} onChange={(event) => setComplemento(event.target.value)} required /><br /><br />
+      </div>
       <div className='informativos-carrinho'>
         <p>{`Total do Pedido: R$${totalCompra},00`}</p>
-        <div onClick={clickAddPedido}>Finalizar Pedido</div>
+        <div onClick={verificaPedido}>Finalizar Pedido</div>
       </div>
       </Drawer>
     </header>

@@ -25,7 +25,7 @@ export default (() =>{
         </TransitionGroup> */}
         {
         pedidos.map((pedido) => (
-            <Pedido produtos={pedido.produtos} criacao={pedido.horario_criacao} conclusao={pedido.horario_conclusao} key={pedido.id}></Pedido>
+            <Pedido produtos={pedido.produtos} criacao={pedido.horario_criacao} conclusao={pedido.horario_conclusao} endereco={pedido.endereco}key={pedido.id}></Pedido>
         ))}
     <img src="../../../images/amarelo 1.svg" alt="" className='fundo-amarelo-pedidos'/>
     </section>

@@ -105,3 +105,21 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.form-endereco{
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 0fr;
+    gap: 0.3rem;
+    padding: 1rem;
+}
+
+.form-endereco > label{
+    font-weight: bold;
+}
+
+.form-endereco > input{
+    height: 2.5rem;
+
+}

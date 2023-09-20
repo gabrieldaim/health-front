@@ -19,12 +19,12 @@ console.log(formattedDate);
 }
 
 
-export default (({produtos, criacao, conclusao}) =>{
+export default (({produtos, criacao, conclusao, endereco}) =>{
 
     const [minutos, setMinutos] = useState(0)
     const [segundos, setSegundos] = useState(0)
     const [status, setStatus] = useState('')
-
+    console.log(endereco)
     let partes = produtos.split('|')
     let divisao = []
     partes.shift()
@@ -34,7 +34,10 @@ export default (({produtos, criacao, conclusao}) =>{
     const horarioConclusao = moment.utc(conclusao, "ddd, DD MMM YYYY HH:mm:ss [GMT]");
     const formattedDateConclusao = horarioConclusao.local().format("HH:mm:ss DD/MM/YYYY");
     const horario = moment(formattedDateConclusao, 'HH:mm:ss DD/MM/YYYY').tz('America/Sao_Paulo');
-
+    const endereco_separado = endereco.split('|')
+    const logradouro = endereco_separado[1];
+    const numero = endereco_separado[2];
+    const estado = endereco_separado[4]
     setInterval(() => {
         const agora = moment().tz('America/Sao_Paulo')
         const diferenca = horario.diff(agora);
@@ -44,7 +47,6 @@ export default (({produtos, criacao, conclusao}) =>{
             setMinutos(minutos)
             const segundos = Math.floor((duracao % 1) * 60)
             setSegundos(segundos)
-            console.log(minutos,segundos)
         }else{
             setStatus('concluido')
         }
@@ -73,6 +75,7 @@ export default (({produtos, criacao, conclusao}) =>{
 
             <div className='horario'>
             <div className='horario-criacao'>Pedido realizado às {formattedDateCriacao}</div>
+            <div className='horario-criacao'>Envio para {logradouro}, n: {numero} - {estado}</div>
             <div className={`horario-conclusao ${status}`}>{status == 'concluido' ? "Pedido entregue!" : `Pedido será entregue daqui a ${minutos}min e ${segundos}seg`}</div>
             </div>
             </div>
